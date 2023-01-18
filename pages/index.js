@@ -65,11 +65,11 @@ export default function Home() {
 
         <span id="second">
           <h2 className='gradient2'>Not looking to meet someone? Perfect.</h2>
-          <p>Help your friends tie the knot. They'll thank you later.</p>
+          <p>Help your friends tie the knot. They&apos;ll thank you later.</p>
         </span>
 
         <span id="third">
-          <p>Do you have a question for us? We'd love to hear from you. Write to us at <span className='gradient'><Link href="mailto:hello@olivematch.com">hello@olivematch.com</Link></span></p>
+          <p>Do you have a question for us? We&apos;d love to hear from you. Write to us at <span className='gradient'><Link href="mailto:hello@olivematch.com">hello@olivematch.com</Link></span></p>
         </span>
       </main>
       <footer>
