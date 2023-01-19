@@ -72,7 +72,9 @@ export default function Home() {
         </span>
 
         <span id="third">
-          <p>Do you have a question for us? We&apos;d love to hear from you. Write to us at <span className='gradient'><Link href="mailto:hello@olivematch.com">hello@olivematch.com</Link></span></p>
+          <p>Do you have a question for us? We&apos;d love to hear from you. Write to us at <span className='gradient'>
+            <Link href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#111;&#108;&#105;&#118;&#101;&#109;&#97;&#116;&#99;&#104;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#108;&#111;&#64;&#111;&#108;&#105;&#118;&#101;&#109;&#97;&#116;&#99;&#104;&#46;&#99;&#111;&#109;</Link>
+            </span></p>
         </span>
       </main>
       <footer>
