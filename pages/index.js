@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
-import { useState } from 'react'
+import { use, useState } from 'react'
 import Link from 'next/link';
 
 export default function Home() {
@@ -9,9 +9,11 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [btnDisabled, setBtnDisabled] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setBtnDisabled(true);
 
     const data = new FormData(event.target);
 
@@ -24,6 +26,7 @@ export default function Home() {
         setName('');
         setEmail('');
         setPhone('');
+        setBtnDisabled(false);
       })
 
   }
@@ -51,11 +54,11 @@ export default function Home() {
         <form onSubmit={handleSubmit}>
           <input type="text" id="name" name="name" placeholder='Your name' required onChange={(e) => setName(e.target.value)} value={name} autoFocus />
           <input type="email" id="email" name="email" placeholder='Your email' required onChange={(e) => setEmail(e.target.value)} value={email} />
-          <input type="tel" id="phone" name="phone" pattern="[0][1][0-9]{9}" placeholder='Your mobile ex: 017*********' required onChange={(e) => setPhone(e.target.value)} value={phone} />
+          <input type="tel" id="phone" name="phone" pattern="\+?[8]{2}?[0][1][0-9]{9}" placeholder='Your mobile' required onChange={(e) => setPhone(e.target.value)} value={phone} />
 
           <span className={submitted ? '': 'hidden'}>Success. Please check your email for confirmation.</span>
 
-          <button type="submit">Join</button>
+          <button type="submit" disabled={btnDisabled}>Join</button>
         </form>
 
         <span id="first">
