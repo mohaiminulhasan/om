@@ -8,27 +8,34 @@ export default function Home() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [city, setCity] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [btnDisabled, setBtnDisabled] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setBtnDisabled(true);
 
-    const data = new FormData(event.target);
+    if (city === '') {
+      setBtnDisabled(true);
 
-    const endpoint = `https://script.google.com/macros/s/AKfycbyJUwDck7KH-Yl3Wjlviujzt-w0RNilPBSuil-UdKHN4wXl3U1BL6M-6_5lduXzgDoDWw/exec`;
+      const data = new FormData(event.target);
 
-    fetch(endpoint, { method: 'POST', body: data })
-      .then(res => res.text())
-      .then(data => {
-        setSubmitted(true);
-        setName('');
-        setEmail('');
-        setPhone('');
-        setBtnDisabled(false);
-      })
+      const endpoint = `https://script.google.com/macros/s/AKfycbyJUwDck7KH-Yl3Wjlviujzt-w0RNilPBSuil-UdKHN4wXl3U1BL6M-6_5lduXzgDoDWw/exec`;
 
+      fetch(endpoint, { method: 'POST', body: data })
+        .then(res => res.text())
+        .then(data => {
+          setSubmitted(true);
+          setName('');
+          setEmail('');
+          setPhone('');
+          setBtnDisabled(false);
+        })
+    }
+  }
+
+  const onCityChange = (e) => {
+    setCity(e.target.value);
   }
 
   return (
@@ -52,9 +59,11 @@ export default function Home() {
         <h3 id="join">Join the waitlist!</h3>
 
         <form onSubmit={handleSubmit}>
+
+          <input className="modhu" type="text" id="city" name="city" placeholder='Your city' onChange={onCityChange} value={city} autoComplete={false} />
           <input type="text" id="name" name="name" placeholder='Your name' required onChange={(e) => setName(e.target.value)} value={name} autoFocus />
           <input type="email" id="email" name="email" placeholder='Your email' required onChange={(e) => setEmail(e.target.value)} value={email} />
-          <input type="tel" id="phone" name="phone" pattern="\+?[8]{2}?[0][1][0-9]{9}" placeholder='Your mobile' required onChange={(e) => setPhone(e.target.value)} value={phone} />
+          <input type="tel" id="phone" name="phone" pattern="\+?([8]{2})?[0][1][0-9]{9}" placeholder='Your mobile' required onChange={(e) => setPhone(e.target.value)} value={phone} />
 
           <span className={submitted ? '': 'hidden'}>Success. Please check your email for confirmation.</span>
 
