@@ -44,6 +44,20 @@ main {
     -webkit-text-fill-color: transparent;
 }
 
+.active {
+    background: -webkit-linear-gradient(left, #3379CC, lightgreen);
+    background: -o-linear-gradient(right, #3379CC, lightgreen);
+    background: -moz-linear-gradient(right, #3379CC, lightgreen);
+    background: linear-gradient(to right, #3379CC, lightgreen); 
+}
+
+.disabled {
+    background: -webkit-linear-gradient(left, #545657, #e5eae5);
+    background: -o-linear-gradient(right, #545657, #e5eae5);
+    background: -moz-linear-gradient(right, #545657, #e5eae5);
+    background: linear-gradient(to right, #545657, #e5eae5); 
+}
+
 h1 {
     text-align: center;
     font-size: 5em;
@@ -84,10 +98,6 @@ button[type='submit'] {
     margin-top: 20px;
     border-radius: 25px;
     border: none;
-    background: -webkit-linear-gradient(left, #3379CC, lightgreen);
-    background: -o-linear-gradient(right, #3379CC, lightgreen);
-    background: -moz-linear-gradient(right, #3379CC, lightgreen);
-    background: linear-gradient(to right, #3379CC, lightgreen); 
     padding: 10px;
     color: white;
     /* font-weight: 900; */

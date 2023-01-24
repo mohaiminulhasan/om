@@ -73,7 +73,7 @@ export default function Home() {
 
           <span className={submitted ? '': 'hidden'}>Success. Please check your email for confirmation.</span>
 
-          <button type="submit" disabled={btnDisabled}>Join</button>
+          <button className={ btnDisabled ? 'disabled' : 'active' } type="submit" disabled={btnDisabled}>Join</button>
         </form>
 
         <span id="first">
