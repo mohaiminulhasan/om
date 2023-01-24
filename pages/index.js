@@ -66,10 +66,10 @@ export default function Home() {
 
         <form onSubmit={handleSubmit}>
 
-          <input className="modhu" type="text" id="shohor" name="shohor" placeholder='Your city' onChange={onCityChange} value={city} />
-          <input type="text" id="naam" name="naam" placeholder='Your name' required onChange={(e) => setName(e.target.value)} value={name} autoFocus />
-          <input type="email" id="email" name="email" placeholder='Your email' required onChange={(e) => setEmail(e.target.value)} value={email} />
-          <input type="tel" id="foon" name="foon" pattern="\+?([8]{2})?[0][1][0-9]{9}" placeholder='Your mobile' required onChange={(e) => setPhone(e.target.value)} value={phone} />
+          <input className="modhu" type="text" id="shohor" name="shohor" placeholder='Your city' autoComplete='mycity' onChange={onCityChange} value={city} />
+          <input type="text" id="naam" name="naam" placeholder='Your name' autoComplete='myname' required onChange={(e) => setName(e.target.value)} value={name} autoFocus />
+          <input type="email" id="email" name="email" placeholder='Your email' autoComplete='myemail' required onChange={(e) => setEmail(e.target.value)} value={email} />
+          <input type="tel" id="foon" name="foon" pattern="\+?([8]{2})?[0][1][0-9]{9}" placeholder='Your mobile' autoComplete='mymobile' required onChange={(e) => setPhone(e.target.value)} value={phone} />
 
           <span className={submitted ? '': 'hidden'}>Success. Please check your email for confirmation.</span>
 
