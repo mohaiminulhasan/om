@@ -66,6 +66,7 @@ export default function Home() {
 
         <form onSubmit={handleSubmit}>
 
+          <input type="hidden" value="something" />
           <input className="modhu" type="text" id="shohor" name="shohor" placeholder='Your city' autoComplete='mycity' onChange={onCityChange} value={city} />
           <input type="text" id="naam" name="naam" placeholder='Your name' autoComplete='myname' required onChange={(e) => setName(e.target.value)} value={name} autoFocus />
           <input type="email" id="email" name="email" placeholder='Your email' autoComplete='myemail' required onChange={(e) => setEmail(e.target.value)} value={email} />
