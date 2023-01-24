@@ -64,7 +64,7 @@ export default function Home() {
 
         <h3 id="join">Join the waitlist!</h3>
 
-        <form onSubmit={handleSubmit} autoComplete="off">
+        <form onSubmit={handleSubmit} autoComplete={false}>
 
           <input className="modhu" type="text" id="city" name="city" placeholder='Your city' onChange={onCityChange} value={city} />
           <input type="text" id="name" name="name" placeholder='Your name' required onChange={(e) => setName(e.target.value)} value={name} autoFocus />
