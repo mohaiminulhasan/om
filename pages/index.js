@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
-import { use, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link';
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
   const [name, setName] = useState('');
@@ -25,12 +25,18 @@ export default function Home() {
       fetch(endpoint, { method: 'POST', body: data })
         .then(res => res.text())
         .then(data => {
-          setSubmitted(true);
-          setName('');
-          setEmail('');
-          setPhone('');
-          setBtnDisabled(false);
-        })
+          emailjs.send('service_dz1tigs', 'template_u1bse8e', { recipient_email: email }, '7fM0Httn03IJF0K7-')
+              .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                setSubmitted(true);
+                setName('');
+                setEmail('');
+                setPhone('');
+                setBtnDisabled(false);
+              }, function(error) {
+                console.log('FAILED...', error);
+              });
+          })
     }
   }
 
@@ -60,7 +66,7 @@ export default function Home() {
 
         <form onSubmit={handleSubmit}>
 
-          <input className="modhu" type="text" id="city" name="city" placeholder='Your city' onChange={onCityChange} value={city} autoComplete={false} />
+          <input className="modhu" type="text" id="city" name="city" placeholder='Your city' onChange={onCityChange} value={city} autoComplete="off" />
           <input type="text" id="name" name="name" placeholder='Your name' required onChange={(e) => setName(e.target.value)} value={name} autoFocus />
           <input type="email" id="email" name="email" placeholder='Your email' required onChange={(e) => setEmail(e.target.value)} value={email} />
           <input type="tel" id="phone" name="phone" pattern="\+?([8]{2})?[0][1][0-9]{9}" placeholder='Your mobile' required onChange={(e) => setPhone(e.target.value)} value={phone} />
