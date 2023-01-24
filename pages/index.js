@@ -64,9 +64,9 @@ export default function Home() {
 
         <h3 id="join">Join the waitlist!</h3>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete="off">
 
-          <input className="modhu" type="text" id="city" name="city" placeholder='Your city' onChange={onCityChange} value={city} autoComplete="off" />
+          <input className="modhu" type="text" id="city" name="city" placeholder='Your city' onChange={onCityChange} value={city} />
           <input type="text" id="name" name="name" placeholder='Your name' required onChange={(e) => setName(e.target.value)} value={name} autoFocus />
           <input type="email" id="email" name="email" placeholder='Your email' required onChange={(e) => setEmail(e.target.value)} value={email} />
           <input type="tel" id="phone" name="phone" pattern="\+?([8]{2})?[0][1][0-9]{9}" placeholder='Your mobile' required onChange={(e) => setPhone(e.target.value)} value={phone} />
