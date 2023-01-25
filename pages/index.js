@@ -68,7 +68,7 @@ export default function Home() {
 
           <input type="hidden" value="something" />
           <input className="modhu" type="text" id="city" name="city" placeholder='Your city' autoComplete='mycity' onChange={onCityChange} value={city} />
-          <input type="text" id="name" name="name" placeholder='Your name' autoComplete='myname' required onChange={(e) => setName(e.target.value)} value={name} autoFocus />
+          <input type="text" id="name" name="name" placeholder='Your name' autoComplete='myname' required onChange={(e) => setName(e.target.value)} value={name} />
           <input type="email" id="email" name="email" placeholder='Your email' autoComplete='myemail' required onChange={(e) => setEmail(e.target.value)} value={email} />
           <input type="tel" id="phone" name="phone" pattern="\+?([8]{2})?[0][1][0-9]{9}" placeholder='Your mobile' autoComplete='mymobile' required onChange={(e) => setPhone(e.target.value)} value={phone} />
 
